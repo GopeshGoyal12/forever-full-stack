@@ -61,25 +61,25 @@ const Add = ({token}) => {
    }
 
   return (
-    <form onSubmit={onSubmitHandler} className='flex flex-col w-full items-start gap-3'>
-        <div>
-          <p className='font-sans uppercase tracking-widest text-xs text-saarthi-muted mb-2'>Upload Imagery</p>
+    <form onSubmit={onSubmitHandler} className='flex flex-col w-full items-start gap-4'>
+        <div className='w-full'>
+          <p className='font-sans uppercase tracking-widest text-xs text-saarthi-muted mb-3'>Upload Imagery</p>
 
-          <div className='flex gap-4'>
+          <div className='flex flex-wrap gap-3 sm:gap-4'>
             <label htmlFor="image1" className='cursor-pointer hover:opacity-80 transition-opacity'>
-              <img className='w-24 h-32 object-cover border border-saarthi-brown/20 shadow-sm' src={!image1 ? assets.upload_area : URL.createObjectURL(image1)} alt="" />
+              <img className='w-20 sm:w-24 h-28 sm:h-32 object-cover border border-saarthi-brown/20 shadow-sm' src={!image1 ? assets.upload_area : URL.createObjectURL(image1)} alt="" />
               <input onChange={(e)=>setImage1(e.target.files[0])} type="file" id="image1" hidden/>
             </label>
             <label htmlFor="image2" className='cursor-pointer hover:opacity-80 transition-opacity'>
-              <img className='w-24 h-32 object-cover border border-saarthi-brown/20 shadow-sm' src={!image2 ? assets.upload_area : URL.createObjectURL(image2)} alt="" />
+              <img className='w-20 sm:w-24 h-28 sm:h-32 object-cover border border-saarthi-brown/20 shadow-sm' src={!image2 ? assets.upload_area : URL.createObjectURL(image2)} alt="" />
               <input onChange={(e)=>setImage2(e.target.files[0])} type="file" id="image2" hidden/>
             </label>
             <label htmlFor="image3" className='cursor-pointer hover:opacity-80 transition-opacity'>
-              <img className='w-24 h-32 object-cover border border-saarthi-brown/20 shadow-sm' src={!image3 ? assets.upload_area : URL.createObjectURL(image3)} alt="" />
+              <img className='w-20 sm:w-24 h-28 sm:h-32 object-cover border border-saarthi-brown/20 shadow-sm' src={!image3 ? assets.upload_area : URL.createObjectURL(image3)} alt="" />
               <input onChange={(e)=>setImage3(e.target.files[0])} type="file" id="image3" hidden/>
             </label>
             <label htmlFor="image4" className='cursor-pointer hover:opacity-80 transition-opacity'>
-              <img className='w-24 h-32 object-cover border border-saarthi-brown/20 shadow-sm' src={!image4 ? assets.upload_area : URL.createObjectURL(image4)} alt="" />
+              <img className='w-20 sm:w-24 h-28 sm:h-32 object-cover border border-saarthi-brown/20 shadow-sm' src={!image4 ? assets.upload_area : URL.createObjectURL(image4)} alt="" />
               <input onChange={(e)=>setImage4(e.target.files[0])} type="file" id="image4" hidden/>
             </label>
           </div>
@@ -87,72 +87,72 @@ const Add = ({token}) => {
 
         <div className='w-full'>
           <p className='font-sans uppercase tracking-widest text-xs text-saarthi-muted mb-2'>Product name</p>
-          <input onChange={(e)=>setName(e.target.value)} value={name} className='w-full max-w-[500px] px-4 py-3' type="text" placeholder='e.g. Ivory Zardozi Lehenga' required/>
+          <input onChange={(e)=>setName(e.target.value)} value={name} className='w-full max-w-xl px-4 py-3 text-sm' type="text" placeholder='e.g. Ivory Zardozi Lehenga' required/>
         </div>
 
         <div className='w-full'>
           <p className='font-sans uppercase tracking-widest text-xs text-saarthi-muted mb-2'>Product description</p>
-          <textarea onChange={(e)=>setDescription(e.target.value)} value={description} className='w-full max-w-[500px] px-4 py-3 min-h-[120px]' type="text" placeholder='Write editorial description here...' required/>
+          <textarea onChange={(e)=>setDescription(e.target.value)} value={description} className='w-full max-w-xl px-4 py-3 min-h-[120px] text-sm' type="text" placeholder='Write editorial description here...' required/>
         </div>
 
-        <div className='flex flex-col sm:flex-row gap-4 w-full sm:gap-8'>
+        <div className='flex flex-col sm:flex-row gap-4 w-full sm:gap-6 max-w-xl'>
 
-            <div>
+            <div className='flex-1'>
               <p className='font-sans uppercase tracking-widest text-xs text-saarthi-muted mb-2'>Category</p>
-              <select onChange={(e) => setCategory(e.target.value)} className='w-full px-4 py-3'>
+              <select onChange={(e) => setCategory(e.target.value)} className='w-full px-4 py-3 text-sm'>
                   <option value="Men">Men</option>
                   <option value="Women">Women</option>
                   <option value="Kids">Kids</option>
               </select>
             </div>
 
-            <div>
+            <div className='flex-1'>
               <p className='font-sans uppercase tracking-widest text-xs text-saarthi-muted mb-2'>Sub Category</p>
-              <select onChange={(e) => setSubCategory(e.target.value)} className='w-full px-4 py-3'>
+              <select onChange={(e) => setSubCategory(e.target.value)} className='w-full px-4 py-3 text-sm'>
                   <option value="Topwear">Topwear</option>
                   <option value="Bottomwear">Bottomwear</option>
                   <option value="Winterwear">Winterwear</option>
               </select>
             </div>
 
-            <div>
+            <div className='flex-1'>
               <p className='font-sans uppercase tracking-widest text-xs text-saarthi-muted mb-2'>Price</p>
-              <input onChange={(e) => setPrice(e.target.value)} value={price} className='w-full px-4 py-3 sm:w-[150px]' type="Number" placeholder='e.g. 50000' />
+              <input onChange={(e) => setPrice(e.target.value)} value={price} className='w-full px-4 py-3 text-sm' type="Number" placeholder='e.g. 50000' />
             </div>
 
         </div>
 
-        <div>
+        <div className='w-full'>
           <p className='font-sans uppercase tracking-widest text-xs text-saarthi-muted mb-3'>Available Sizes</p>
-          <div className='flex gap-3'>
+          <div className='flex flex-wrap gap-2.5 sm:gap-3'>
             <div onClick={()=>setSizes(prev => prev.includes("S") ? prev.filter( item => item !== "S") : [...prev,"S"])}>
-              <p className={`${sizes.includes("S") ? "bg-saarthi-maroon/10 border-saarthi-maroon text-saarthi-maroon" : "bg-saarthi-ivory border-saarthi-brown/20 text-saarthi-muted" } border px-4 py-2 cursor-pointer transition-colors text-sm`}>S</p>
+              <p className={`${sizes.includes("S") ? "bg-saarthi-maroon/10 border-saarthi-maroon text-saarthi-maroon font-medium" : "bg-saarthi-ivory border-saarthi-brown/20 text-saarthi-muted" } border px-4 py-2 cursor-pointer transition-colors text-sm rounded-sm`}>S</p>
             </div>
             
             <div onClick={()=>setSizes(prev => prev.includes("M") ? prev.filter( item => item !== "M") : [...prev,"M"])}>
-              <p className={`${sizes.includes("M") ? "bg-saarthi-maroon/10 border-saarthi-maroon text-saarthi-maroon" : "bg-saarthi-ivory border-saarthi-brown/20 text-saarthi-muted" } border px-4 py-2 cursor-pointer transition-colors text-sm`}>M</p>
+              <p className={`${sizes.includes("M") ? "bg-saarthi-maroon/10 border-saarthi-maroon text-saarthi-maroon font-medium" : "bg-saarthi-ivory border-saarthi-brown/20 text-saarthi-muted" } border px-4 py-2 cursor-pointer transition-colors text-sm rounded-sm`}>M</p>
             </div>
 
             <div onClick={()=>setSizes(prev => prev.includes("L") ? prev.filter( item => item !== "L") : [...prev,"L"])}>
-              <p className={`${sizes.includes("L") ? "bg-saarthi-maroon/10 border-saarthi-maroon text-saarthi-maroon" : "bg-saarthi-ivory border-saarthi-brown/20 text-saarthi-muted" } border px-4 py-2 cursor-pointer transition-colors text-sm`}>L</p>
+              <p className={`${sizes.includes("L") ? "bg-saarthi-maroon/10 border-saarthi-maroon text-saarthi-maroon font-medium" : "bg-saarthi-ivory border-saarthi-brown/20 text-saarthi-muted" } border px-4 py-2 cursor-pointer transition-colors text-sm rounded-sm`}>L</p>
             </div>
 
             <div onClick={()=>setSizes(prev => prev.includes("XL") ? prev.filter( item => item !== "XL") : [...prev,"XL"])}>
-              <p className={`${sizes.includes("XL") ? "bg-saarthi-maroon/10 border-saarthi-maroon text-saarthi-maroon" : "bg-saarthi-ivory border-saarthi-brown/20 text-saarthi-muted" } border px-4 py-2 cursor-pointer transition-colors text-sm`}>XL</p>
+              <p className={`${sizes.includes("XL") ? "bg-saarthi-maroon/10 border-saarthi-maroon text-saarthi-maroon font-medium" : "bg-saarthi-ivory border-saarthi-brown/20 text-saarthi-muted" } border px-4 py-2 cursor-pointer transition-colors text-sm rounded-sm`}>XL</p>
             </div>
 
             <div onClick={()=>setSizes(prev => prev.includes("XXL") ? prev.filter( item => item !== "XXL") : [...prev,"XXL"])}>
-              <p className={`${sizes.includes("XXL") ? "bg-saarthi-maroon/10 border-saarthi-maroon text-saarthi-maroon" : "bg-saarthi-ivory border-saarthi-brown/20 text-saarthi-muted" } border px-4 py-2 cursor-pointer transition-colors text-sm`}>XXL</p>
+              <p className={`${sizes.includes("XXL") ? "bg-saarthi-maroon/10 border-saarthi-maroon text-saarthi-maroon font-medium" : "bg-saarthi-ivory border-saarthi-brown/20 text-saarthi-muted" } border px-4 py-2 cursor-pointer transition-colors text-sm rounded-sm`}>XXL</p>
             </div>
           </div>
         </div>
 
-        <div className='flex gap-3 mt-4 items-center'>
+        <div className='flex gap-3 mt-2 sm:mt-4 items-center'>
           <input onChange={() => setBestseller(prev => !prev)} checked={bestseller} type="checkbox" id='bestseller' className='accent-saarthi-maroon w-4 h-4' />
-          <label className='cursor-pointer text-sm font-light text-saarthi-dark' htmlFor="bestseller">Mark as Bestseller / Signature Collection</label>
+          <label className='cursor-pointer text-xs sm:text-sm font-light text-saarthi-dark' htmlFor="bestseller">Mark as Bestseller / Signature Collection</label>
         </div>
 
-        <button type="submit" className='w-48 py-4 mt-6 bg-saarthi-dark text-saarthi-ivory hover:bg-saarthi-maroon hover:text-saarthi-gold transition-colors duration-300 font-sans uppercase tracking-[0.2em] text-xs'>Publish Item</button>
+        <button type="submit" className='w-full sm:w-48 py-3.5 sm:py-4 mt-4 sm:mt-6 bg-saarthi-dark text-saarthi-ivory hover:bg-saarthi-maroon hover:text-saarthi-gold transition-colors duration-300 font-sans uppercase tracking-[0.2em] text-xs'>Publish Item</button>
 
     </form>
   )

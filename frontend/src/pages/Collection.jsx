@@ -97,32 +97,32 @@ const Collection = () => {
   }
 
   return (
-    <div className='flex flex-col sm:flex-row gap-1 sm:gap-14 pt-16 border-t border-saarthi-brown/20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] max-w-[1600px] mx-auto'>
+    <div className='flex flex-col sm:flex-row gap-6 sm:gap-10 lg:gap-14 pt-8 sm:pt-12 md:pt-16 border-t border-saarthi-brown/20 max-w-[1600px] mx-auto w-full'>
       
       {/* Filter Options */}
-      <div className='min-w-64'>
-        <p onClick={()=>setShowFilter(!showFilter)} className='my-2 text-2xl flex items-center justify-between cursor-pointer font-display text-saarthi-dark tracking-widest uppercase border-b border-saarthi-brown/20 pb-4'>
+      <div className='w-full sm:w-56 md:w-64 flex-shrink-0'>
+        <p onClick={()=>setShowFilter(!showFilter)} className='my-2 text-xl sm:text-2xl flex items-center justify-between cursor-pointer font-display text-saarthi-dark tracking-widest uppercase border-b border-saarthi-brown/20 pb-3 sm:pb-4'>
           Filters
           <img className={`h-4 sm:hidden transition-transform duration-300 ${showFilter ? 'rotate-180' : ''}`} src={assets.dropdown_icon} alt="" />
         </p>
         
         {/* Category Filter */}
-        <div className={`py-6 border-b border-saarthi-brown/10 ${showFilter ? '' :'hidden'} sm:block`}>
-          <p className='mb-6 text-sm font-sans tracking-[0.2em] text-saarthi-maroon uppercase font-medium'>Category</p>
-          <div className='flex flex-col gap-4 text-sm font-light text-saarthi-dark tracking-wide'>
-            <label className='flex gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
+        <div className={`py-4 sm:py-6 border-b border-saarthi-brown/10 ${showFilter ? '' :'hidden'} sm:block`}>
+          <p className='mb-4 sm:mb-6 text-xs sm:text-sm font-sans tracking-[0.2em] text-saarthi-maroon uppercase font-medium'>Category</p>
+          <div className='flex flex-col gap-3 sm:gap-4 text-sm font-light text-saarthi-dark tracking-wide'>
+            <label className='flex gap-3 sm:gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
               <div className='w-4 h-4 border border-saarthi-brown/40 flex items-center justify-center group-hover:border-saarthi-maroon transition-colors'>
                 {category.includes('Men') && <div className='w-2 h-2 bg-saarthi-maroon'></div>}
               </div>
               <input className='hidden' type="checkbox" value={'Men'} onChange={toggleCategory}/> Men
             </label>
-            <label className='flex gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
+            <label className='flex gap-3 sm:gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
               <div className='w-4 h-4 border border-saarthi-brown/40 flex items-center justify-center group-hover:border-saarthi-maroon transition-colors'>
                 {category.includes('Women') && <div className='w-2 h-2 bg-saarthi-maroon'></div>}
               </div>
               <input className='hidden' type="checkbox" value={'Women'} onChange={toggleCategory}/> Women
             </label>
-            <label className='flex gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
+            <label className='flex gap-3 sm:gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
               <div className='w-4 h-4 border border-saarthi-brown/40 flex items-center justify-center group-hover:border-saarthi-maroon transition-colors'>
                 {category.includes('Kids') && <div className='w-2 h-2 bg-saarthi-maroon'></div>}
               </div>
@@ -132,22 +132,22 @@ const Collection = () => {
         </div>
         
         {/* SubCategory Filter */}
-        <div className={`py-6 border-b border-saarthi-brown/10 ${showFilter ? '' :'hidden'} sm:block`}>
-          <p className='mb-6 text-sm font-sans tracking-[0.2em] text-saarthi-maroon uppercase font-medium'>Collection Type</p>
-          <div className='flex flex-col gap-4 text-sm font-light text-saarthi-dark tracking-wide'>
-            <label className='flex gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
+        <div className={`py-4 sm:py-6 border-b border-saarthi-brown/10 ${showFilter ? '' :'hidden'} sm:block`}>
+          <p className='mb-4 sm:mb-6 text-xs sm:text-sm font-sans tracking-[0.2em] text-saarthi-maroon uppercase font-medium'>Collection Type</p>
+          <div className='flex flex-col gap-3 sm:gap-4 text-sm font-light text-saarthi-dark tracking-wide'>
+            <label className='flex gap-3 sm:gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
               <div className='w-4 h-4 border border-saarthi-brown/40 flex items-center justify-center group-hover:border-saarthi-maroon transition-colors'>
                 {subCategory.includes('Topwear') && <div className='w-2 h-2 bg-saarthi-maroon'></div>}
               </div>
               <input className='hidden' type="checkbox" value={'Topwear'} onChange={toggleSubCategory}/> Topwear
             </label>
-            <label className='flex gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
+            <label className='flex gap-3 sm:gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
               <div className='w-4 h-4 border border-saarthi-brown/40 flex items-center justify-center group-hover:border-saarthi-maroon transition-colors'>
                 {subCategory.includes('Bottomwear') && <div className='w-2 h-2 bg-saarthi-maroon'></div>}
               </div>
               <input className='hidden' type="checkbox" value={'Bottomwear'} onChange={toggleSubCategory}/> Bottomwear
             </label>
-            <label className='flex gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
+            <label className='flex gap-3 sm:gap-4 items-center cursor-pointer hover:text-saarthi-maroon transition-colors group'>
               <div className='w-4 h-4 border border-saarthi-brown/40 flex items-center justify-center group-hover:border-saarthi-maroon transition-colors'>
                 {subCategory.includes('Winterwear') && <div className='w-2 h-2 bg-saarthi-maroon'></div>}
               </div>
@@ -158,12 +158,12 @@ const Collection = () => {
       </div>
 
       {/* Right Side */}
-      <div className='flex-1'>
+      <div className='flex-1 min-w-0'>
 
-        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center text-base sm:text-2xl mb-12 gap-6'>
+        <div className='flex flex-col sm:flex-row justify-between items-start sm:items-center text-base sm:text-2xl mb-8 sm:mb-12 gap-4'>
             <Title text1={'ALL'} text2={'COLLECTIONS'} />
             {/* Product Sort */}
-            <select onChange={(e)=>setSortType(e.target.value)} className='editorial-border bg-saarthi-ivory text-saarthi-dark text-sm px-6 py-3 font-sans tracking-widest uppercase focus:outline-none focus:border-saarthi-maroon transition-colors appearance-none cursor-pointer'>
+            <select onChange={(e)=>setSortType(e.target.value)} className='editorial-border bg-saarthi-ivory text-saarthi-dark text-xs sm:text-sm px-4 sm:px-6 py-2.5 sm:py-3 font-sans tracking-wider uppercase focus:outline-none focus:border-saarthi-maroon transition-colors cursor-pointer w-full sm:w-auto'>
               <option value="relavent">Sort by: Relevant</option>
               <option value="low-high">Sort by: Low to High</option>
               <option value="high-low">Sort by: High to Low</option>
@@ -175,7 +175,7 @@ const Collection = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className='grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 gap-y-12'
+          className='grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6 gap-y-8 sm:gap-y-12'
         >
           {
             filterProducts.map((item,index)=>(

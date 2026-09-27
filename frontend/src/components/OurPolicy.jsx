@@ -23,7 +23,7 @@ const OurPolicy = () => {
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
-      className='flex flex-col sm:flex-row justify-around gap-12 sm:gap-6 text-center py-24 px-4 sm:px-[5vw] max-w-[1400px] mx-auto border-t border-saarthi-brown/10'
+      className='flex flex-col sm:flex-row justify-around gap-10 sm:gap-6 text-center py-12 sm:py-16 md:py-24 px-4 max-w-[1400px] mx-auto border-t border-saarthi-brown/10'
     >
       
       <motion.div variants={itemVariants} className='flex flex-col items-center group'>

@@ -77,11 +77,11 @@ const SplashScreen = () => {
              transition={{ duration: 2, delay: 3.8, ease: "easeOut" }}
              className='flex flex-col items-center'
           >
-            <p className='text-saarthi-gold font-sans uppercase tracking-[0.5em] text-xs md:text-sm mb-6'>
+            <p className='text-saarthi-gold font-sans uppercase tracking-[0.3em] sm:tracking-[0.5em] text-[11px] sm:text-xs md:text-sm mb-4 sm:mb-6 text-center px-4'>
                 The Hands Behind
             </p>
             <h1 
-                className='text-saarthi-ivory font-display text-6xl md:text-[8rem] lg:text-[10rem] tracking-widest uppercase leading-none drop-shadow-2xl'
+                className='text-saarthi-ivory font-display text-5xl sm:text-7xl md:text-[8rem] lg:text-[10rem] tracking-wider sm:tracking-widest uppercase leading-none drop-shadow-2xl text-center px-2'
                 style={{ textShadow: '0 10px 40px rgba(0,0,0,0.8)' }}
             >
                 Saarthi

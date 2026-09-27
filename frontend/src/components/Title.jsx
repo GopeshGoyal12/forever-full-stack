@@ -2,13 +2,13 @@ import React from 'react'
 
 const Title = ({text1,text2}) => {
   return (
-    <div className='inline-flex flex-col items-center mb-6'>
-      <div className='flex items-center gap-4'>
-        <p className='w-12 h-[1px] bg-saarthi-terracotta'></p>
-        <h2 className='text-3xl sm:text-4xl lg:text-5xl font-display text-saarthi-brown tracking-wide'>
+    <div className='inline-flex flex-col items-center mb-6 max-w-full'>
+      <div className='flex items-center gap-2 sm:gap-4 max-w-full'>
+        <p className='w-6 sm:w-12 h-[1px] bg-saarthi-terracotta flex-shrink-0'></p>
+        <h2 className='text-2xl sm:text-4xl lg:text-5xl font-display text-saarthi-brown tracking-wide text-center'>
           <span className='text-saarthi-dark font-light italic'>{text1}</span> {text2}
         </h2>
-        <p className='w-12 h-[1px] bg-saarthi-terracotta'></p>
+        <p className='w-6 sm:w-12 h-[1px] bg-saarthi-terracotta flex-shrink-0'></p>
       </div>
       <div className='mt-2 flex gap-1 justify-center opacity-70'>
         <span className='w-2 h-2 rounded-full bg-saarthi-gold'></span>

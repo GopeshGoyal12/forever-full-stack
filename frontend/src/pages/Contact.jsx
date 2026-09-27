@@ -46,26 +46,26 @@ const Contact = () => {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
-      className="font-sans min-h-[80vh] flex items-center justify-center py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]"
+      className="font-sans min-h-[80vh] flex items-center justify-center py-10 sm:py-16 md:py-20 w-full"
     >
       <main className="w-full max-w-6xl mx-auto">
-        <div className="bg-saarthi-ivory editorial-border grid md:grid-cols-2 relative overflow-hidden">
+        <div className="bg-saarthi-ivory editorial-border grid grid-cols-1 md:grid-cols-2 relative overflow-hidden">
 
           {/* Left Info Section - Editorial Style */}
-          <div className="relative p-12 lg:p-20 bg-saarthi-maroon text-saarthi-ivory flex flex-col justify-center">
+          <div className="relative p-6 sm:p-10 lg:p-16 bg-saarthi-maroon text-saarthi-ivory flex flex-col justify-center">
             {/* Background Pattern */}
             <div className='absolute inset-0 opacity-[0.03] bg-mandala-pattern bg-cover bg-center pointer-events-none'></div>
 
             <div className='relative z-10'>
-              <p className='font-sans tracking-[0.3em] text-xs text-saarthi-gold uppercase mb-4'>Inquiries</p>
-              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl mb-8 leading-[1.1]">Let's Connect.</h1>
-              <p className="text-saarthi-ivory/80 mb-12 font-light leading-relaxed text-lg max-w-md">Whether you have a question about our artisans or wish to place a custom handcrafted order, we invite you to reach out.</p>
+              <p className='font-sans tracking-[0.3em] text-xs text-saarthi-gold uppercase mb-3 sm:mb-4'>Inquiries</p>
+              <h1 className="font-display text-3xl sm:text-5xl lg:text-6xl mb-6 sm:mb-8 leading-[1.1]">Let's Connect.</h1>
+              <p className="text-saarthi-ivory/80 mb-8 sm:mb-12 font-light leading-relaxed text-sm sm:text-base lg:text-lg max-w-md">Whether you have a question about our artisans or wish to place a custom handcrafted order, we invite you to reach out.</p>
 
-              <div className="space-y-6 border-l border-saarthi-gold/30 pl-6">
+              <div className="space-y-4 sm:space-y-6 border-l border-saarthi-gold/30 pl-4 sm:pl-6">
                 {contactInfo.map((item, i) => (
-                  <div key={i} className="flex items-center gap-6 group">
-                    <div className="text-saarthi-gold group-hover:scale-110 transition-transform">{item.icon}</div>
-                    <span className="text-base font-light tracking-wide">{item.text}</span>
+                  <div key={i} className="flex items-center gap-4 sm:gap-6 group">
+                    <div className="text-saarthi-gold group-hover:scale-110 transition-transform flex-shrink-0">{item.icon}</div>
+                    <span className="text-xs sm:text-sm lg:text-base font-light tracking-wide break-all sm:break-normal">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -73,8 +73,8 @@ const Contact = () => {
           </div>
 
           {/* Right Form Section */}
-          <div className="p-12 lg:p-20 bg-transparent flex flex-col justify-center">
-            <h2 className="font-display text-3xl text-saarthi-dark mb-10">Send a Message</h2>
+          <div className="p-6 sm:p-10 lg:p-16 bg-transparent flex flex-col justify-center">
+            <h2 className="font-display text-2xl sm:text-3xl text-saarthi-dark mb-6 sm:mb-10">Send a Message</h2>
 
             {isSubmitted ? (
               <motion.div 

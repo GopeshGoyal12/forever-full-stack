@@ -4,16 +4,16 @@ import AnimatedImage from '../components/AnimatedImage'
 
 const Craftsmanship = () => {
   return (
-    <div className='w-full min-h-screen bg-saarthi-cream pt-20 pb-24'>
-      <div className='max-w-[1400px] mx-auto px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <div className='w-full min-h-screen bg-saarthi-cream pt-10 sm:pt-20 pb-16 sm:pb-24'>
+      <div className='max-w-[1400px] mx-auto w-full'>
         
         {/* Header Section */}
-        <div className='text-center mb-24'>
+        <div className='text-center mb-12 sm:mb-20 md:mb-24 px-4'>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className='font-sans tracking-[0.3em] text-sm text-saarthi-maroon uppercase mb-4'
+            className='font-sans tracking-[0.3em] text-xs sm:text-sm text-saarthi-maroon uppercase mb-3 sm:mb-4'
           >
             Our Artisans
           </motion.p>
@@ -21,7 +21,7 @@ const Craftsmanship = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.2 }}
-            className='font-display text-5xl sm:text-6xl md:text-7xl text-saarthi-dark leading-tight mb-8 max-w-4xl mx-auto'
+            className='font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-saarthi-dark leading-tight mb-6 sm:mb-8 max-w-4xl mx-auto'
           >
             The Art of <span className='italic font-light text-saarthi-gold'>Rabari</span> Embroidery
           </motion.h1>
@@ -29,14 +29,14 @@ const Craftsmanship = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.4 }}
-            className='text-saarthi-muted text-lg max-w-2xl mx-auto font-light leading-relaxed'
+            className='text-saarthi-muted text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed'
           >
             For generations, the women of Kutch have woven their stories, beliefs, and vibrant culture into every stitch. At Saarthi, we honor this legacy.
           </motion.p>
         </div>
 
         {/* Story Section 1 */}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-32'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center mb-16 sm:mb-24 md:mb-32'>
           <AnimatedImage 
             src="/indian_artisan_woman.png" 
             alt="Artisan at work" 
@@ -74,7 +74,7 @@ const Craftsmanship = () => {
         </div>
 
         {/* Full Bleed Image Section */}
-        <div className='w-full h-[60vh] md:h-[80vh] mb-32'>
+        <div className='w-full h-[35vh] sm:h-[55vh] md:h-[75vh] mb-16 sm:mb-24 md:mb-32 rounded-sm overflow-hidden'>
           <AnimatedImage 
             src="/indian_embroidery_elephant.png" 
             alt="Elephant Motif Embroidery" 
@@ -84,7 +84,7 @@ const Craftsmanship = () => {
         </div>
 
         {/* Story Section 2 */}
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-16 items-center'>
+        <div className='grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center'>
           <div className='flex flex-col justify-center order-2 lg:order-1'>
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}

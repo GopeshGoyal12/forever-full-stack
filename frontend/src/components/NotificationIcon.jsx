@@ -35,10 +35,10 @@ const NotificationIcon = () => {
       </button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-80 bg-white border rounded shadow z-50">
-          <div className="p-3 border-b flex justify-between items-center">
-            <div className="font-semibold">Notifications</div>
-            <button onClick={markAllAsRead} className="text-sm text-blue-600">
+        <div className="absolute right-0 mt-2 w-[calc(100vw-32px)] sm:w-80 max-w-[340px] bg-white border border-gray-200 rounded-lg shadow-xl z-50 overflow-hidden">
+          <div className="p-3 border-b flex justify-between items-center bg-gray-50/70">
+            <div className="font-semibold text-sm">Notifications</div>
+            <button onClick={markAllAsRead} className="text-xs text-blue-600 hover:underline">
               Mark all
             </button>
           </div>

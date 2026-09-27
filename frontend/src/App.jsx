@@ -20,7 +20,7 @@ import Verify from './pages/Verify'
 import Profile from './pages/Profile'
 import { NotificationProvider } from './context/NotificationContext'
 
-import Chatbot from './components/Chatbot' // <- use components path; file exists there
+import Chatbot from './components/Chatbot'
 import SplashScreen from './components/SplashScreen'
 import Lenis from 'lenis'
 import { useEffect } from 'react'
@@ -54,31 +54,33 @@ const App = () => {
   return (
     <NotificationProvider>
       <SplashScreen />
-      <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+      <div className='min-h-screen flex flex-col w-full overflow-x-hidden relative'>
 
-        <ToastContainer />
+        <ToastContainer position="top-right" autoClose={3000} />
         <Navbar />
         <SearchBar />
 
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/collection' element={<Collection />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/craftsmanship' element={<Craftsmanship />} />
-          <Route path='/heritage' element={<Heritage />} />
-          <Route path='/contact' element={<Contact />} />
-          <Route path='/product/:productId' element={<Product />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/place-order' element={<PlaceOrder />} />
-          <Route path='/orders' element={<Orders />} />
-          <Route path='/verify' element={<Verify />} />
-          <Route path='/profile' element={<Profile />} />
-        </Routes>
+        <main className='flex-1 w-full'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/collection' element={<Collection />} />
+            <Route path='/about' element={<About />} />
+            <Route path='/craftsmanship' element={<Craftsmanship />} />
+            <Route path='/heritage' element={<Heritage />} />
+            <Route path='/contact' element={<Contact />} />
+            <Route path='/product/:productId' element={<Product />} />
+            <Route path='/cart' element={<Cart />} />
+            <Route path='/login' element={<Login />} />
+            <Route path='/place-order' element={<PlaceOrder />} />
+            <Route path='/orders' element={<Orders />} />
+            <Route path='/verify' element={<Verify />} />
+            <Route path='/profile' element={<Profile />} />
+          </Routes>
+        </main>
 
         <Footer />
 
-        {/* ⭐ Floating Chatbot Icon */}
+        {/* Floating Chatbot */}
         <Chatbot />
 
       </div>

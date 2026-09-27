@@ -5,8 +5,7 @@ const userSchema = new mongoose.Schema({
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     cartData: { type: Object, default: {} },
-    // email verification fields
-    isVerified: { type: Boolean, default: false },
+    isVerified: { type: Boolean, default: true },
     otpHash: { type: String },
     otpExpiresAt: { type: Date },
     // profile fields

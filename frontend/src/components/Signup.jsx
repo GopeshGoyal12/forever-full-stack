@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 
 // --- Signup Component ---
 const Signup = () => {
-  const API = import.meta.env.VITE_API_URL || 'http://localhost:4000';
+  const API = import.meta.env.VITE_API_URL || import.meta.env.VITE_BACKEND_URL || 'http://localhost:4000';
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleSignup = async (e) => {
     e.preventDefault();
@@ -17,26 +18,32 @@ const Signup = () => {
       return;
     }
     try {
-      const res = await fetch(`${API}/auth/signup`, {
+      setLoading(true);
+      const res = await fetch(`${API}/api/user/register`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name: name.trim(), email: email.trim(), password }),
+        body: JSON.stringify({ name: name.trim(), email: email.trim().toLowerCase(), password }),
       });
       const data = await res.json().catch(() => ({}));
-      if (!res.ok) {
+      if (!res.ok || !data.success) {
         setError(data.message || `Signup failed (${res.status})`);
         return;
       }
-      // on success: optionally auto-login or redirect
+      if (data.token) {
+        localStorage.setItem('token', data.token);
+        window.location.href = '/';
+      }
     } catch (err) {
       console.error('Signup network error:', err);
       setError(`Network error: could not reach ${API}.`);
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
+    <div className="flex items-center justify-center min-h-[75vh] w-full px-4 py-8">
+      <div className="w-full max-w-md p-6 sm:p-8 space-y-6 bg-white rounded-lg shadow-md border border-gray-100">
         <h2 className="text-2xl font-bold text-center">Create an Account</h2>
         {error && <div className="p-4 text-sm text-red-700 bg-red-100 rounded">{error}</div>}
         <form onSubmit={handleSignup} className="space-y-4">
@@ -72,9 +79,10 @@ const Signup = () => {
           </div>
           <button
             type="submit"
-            className="w-full px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-500 focus:ring focus:ring-blue-300"
+            disabled={loading}
+            className="w-full px-4 py-2 text-sm font-semibold text-white bg-blue-600 rounded-lg shadow-md hover:bg-blue-500 focus:ring focus:ring-blue-300 disabled:opacity-50"
           >
-            Sign Up
+            {loading ? 'Signing Up...' : 'Sign Up'}
           </button>
         </form>
         <p className="text-sm text-center text-gray-500">

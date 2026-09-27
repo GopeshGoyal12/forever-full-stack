@@ -266,12 +266,12 @@ Format: 3–5 clean lines (no *, no -, no markdown).
   // CHAT UI
   // ---------------------------------------------
   const widget = (
-    <div className="fixed bottom-6 right-6 z-50">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50">
       {isOpen && (
-        <div className="mb-3 w-[340px] h-[480px] bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col animate-fadeIn">
-          <div className="p-3 border-b flex justify-between items-center">
+        <div className="mb-3 w-[calc(100vw-32px)] sm:w-[350px] max-h-[82vh] h-[480px] bg-white rounded-2xl shadow-xl overflow-hidden flex flex-col animate-fadeIn border border-gray-100">
+          <div className="p-3 border-b flex justify-between items-center bg-gray-50/80">
             <h2 className="font-semibold text-sm">StyleSher – Your Filmy Friend</h2>
-            <button onClick={() => setIsOpen(false)}>
+            <button onClick={() => setIsOpen(false)} aria-label="Close Chat">
               <X size={22} />
             </button>
           </div>

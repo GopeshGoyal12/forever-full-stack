@@ -9,29 +9,37 @@ const Login = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
+    if (loading) return;
     try {
+      setLoading(true);
+      const cleanEmail = email.trim().toLowerCase();
       if (currentState === 'Sign Up') {
         const response = await axios.post(backendUrl + '/api/user/register', {
-          name,
-          email,
+          name: name.trim(),
+          email: cleanEmail,
           password,
         });
         if (response.data.success) {
           setToken(response.data.token);
+          localStorage.setItem('token', response.data.token);
+          toast.success(response.data.message || 'Account created successfully!');
           navigate('/');
         } else {
           toast.error(response.data.message);
         }
       } else {
         const response = await axios.post(backendUrl + '/api/user/login', {
-          email,
+          email: cleanEmail,
           password,
         });
         if (response.data.success) {
           setToken(response.data.token);
+          localStorage.setItem('token', response.data.token);
+          toast.success(response.data.message || 'Logged in successfully!');
           navigate('/');
         } else {
           toast.error(response.data.message);
@@ -46,12 +54,14 @@ const Login = () => {
       } else {
         toast.error(error.message);
       }
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
-    <form onSubmit={onSubmitHandler} className='flex flex-col items-center w-full sm:max-w-96 m-auto mt-14 gap-4 text-gray-800'>
-      <div className='inline-flex items-center gap-2 mb-2 mt-10'>
+    <form onSubmit={onSubmitHandler} className='flex flex-col items-center w-full max-w-sm mx-auto px-4 mt-8 sm:mt-14 gap-4 text-gray-800'>
+      <div className='inline-flex items-center gap-2 mb-2 mt-6 sm:mt-10'>
         <p className='prata-regular text-3xl'>{currentState}</p>
         <hr className='border-none h-[1.5px] w-8 bg-gray-800' />
       </div>
@@ -89,8 +99,8 @@ const Login = () => {
           <p onClick={() => setCurrentState('Login')} className='cursor-pointer'>Login Here</p>
         )}
       </div>
-      <button type='submit' className='w-full text-white bg-black py-2 mt-4'>
-        {currentState === 'Login' ? 'Sign In' : 'Sign Up'}
+      <button type='submit' disabled={loading} className='w-full text-white bg-black py-2 mt-4 disabled:opacity-50'>
+        {loading ? 'Please wait...' : (currentState === 'Login' ? 'Sign In' : 'Sign Up')}
       </button>
     </form>
   );

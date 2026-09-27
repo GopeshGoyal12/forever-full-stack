@@ -6,7 +6,7 @@
 
 @layer base {
   body {
-    @apply text-saarthi-dark bg-saarthi-cream font-sans antialiased;
+    @apply text-saarthi-dark bg-saarthi-cream font-sans antialiased overflow-x-hidden;
   }
 }
 
